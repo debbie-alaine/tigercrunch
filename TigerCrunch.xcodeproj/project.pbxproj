@@ -13,6 +13,7 @@
 		F984C00E1AE5DDF200A2ED04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F984C00D1AE5DDF200A2ED04 /* Images.xcassets */; };
 		F984C0111AE5DDF200A2ED04 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F984C00F1AE5DDF200A2ED04 /* LaunchScreen.xib */; };
 		F984C01D1AE5DDF200A2ED04 /* TigerCrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C01C1AE5DDF200A2ED04 /* TigerCrunchTests.swift */; };
+		F984C0271AE5FFC000A2ED04 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0261AE5FFC000A2ED04 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		F984C0161AE5DDF200A2ED04 /* TigerCrunchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TigerCrunchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F984C01B1AE5DDF200A2ED04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F984C01C1AE5DDF200A2ED04 /* TigerCrunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerCrunchTests.swift; sourceTree = "<group>"; };
+		F984C0261AE5FFC000A2ED04 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */,
 				F984C0081AE5DDF200A2ED04 /* ViewController.swift */,
+				F984C0261AE5FFC000A2ED04 /* CustomCell.swift */,
 				F984C00A1AE5DDF200A2ED04 /* Main.storyboard */,
 				F984C00D1AE5DDF200A2ED04 /* Images.xcassets */,
 				F984C00F1AE5DDF200A2ED04 /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */,
+				F984C0271AE5FFC000A2ED04 /* CustomCell.swift in Sources */,
 				F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
