@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F93B13621AE89C4200505F9F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B13611AE89C4200505F9F /* SecondViewController.swift */; };
 		F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */; };
 		F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0081AE5DDF200A2ED04 /* ViewController.swift */; };
 		F984C00C1AE5DDF200A2ED04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F984C00A1AE5DDF200A2ED04 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F93B13611AE89C4200505F9F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F984C0011AE5DDF200A2ED04 /* TigerCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TigerCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F984C0051AE5DDF200A2ED04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */,
 				F984C0081AE5DDF200A2ED04 /* ViewController.swift */,
+				F93B13611AE89C4200505F9F /* SecondViewController.swift */,
 				F984C0261AE5FFC000A2ED04 /* CustomCell.swift */,
 				F984C00A1AE5DDF200A2ED04 /* Main.storyboard */,
 				F984C00D1AE5DDF200A2ED04 /* Images.xcassets */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93B13621AE89C4200505F9F /* SecondViewController.swift in Sources */,
 				F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */,
 				F984C0271AE5FFC000A2ED04 /* CustomCell.swift in Sources */,
 				F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */,
@@ -413,6 +417,7 @@
 				F984C0221AE5DDF200A2ED04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F984C0231AE5DDF200A2ED04 /* Build configuration list for PBXNativeTarget "TigerCrunchTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				F984C0251AE5DDF200A2ED04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
