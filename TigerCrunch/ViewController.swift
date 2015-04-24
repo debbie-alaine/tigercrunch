@@ -51,6 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return self.data.count;
     }
     
+    // creates a cell for each element in the database
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -72,6 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return true
     }
     
+    // delete cell from database when you slide and click the delete button
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)]
@@ -85,7 +87,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             var response: NSURLResponse? = nil
             var error: NSError? = nil
             let reply = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&error)
+            
+            reload()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        reload()
     }
 }
 
