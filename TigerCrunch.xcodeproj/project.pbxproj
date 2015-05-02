@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C71A3351AF1E5A7005B4C26 /* postTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71A3341AF1E5A7005B4C26 /* postTableViewController.swift */; };
 		F93B13621AE89C4200505F9F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B13611AE89C4200505F9F /* SecondViewController.swift */; };
 		F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */; };
 		F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0081AE5DDF200A2ED04 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C71A3341AF1E5A7005B4C26 /* postTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewController.swift; sourceTree = "<group>"; };
 		F93B13611AE89C4200505F9F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F984C0011AE5DDF200A2ED04 /* TigerCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TigerCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F984C0051AE5DDF200A2ED04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,13 +83,11 @@
 		F984C0031AE5DDF200A2ED04 /* TigerCrunch */ = {
 			isa = PBXGroup;
 			children = (
-				F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */,
 				F984C0081AE5DDF200A2ED04 /* ViewController.swift */,
 				F93B13611AE89C4200505F9F /* SecondViewController.swift */,
 				F984C0261AE5FFC000A2ED04 /* CustomCell.swift */,
 				F984C00A1AE5DDF200A2ED04 /* Main.storyboard */,
-				F984C00D1AE5DDF200A2ED04 /* Images.xcassets */,
-				F984C00F1AE5DDF200A2ED04 /* LaunchScreen.xib */,
+				1C71A3341AF1E5A7005B4C26 /* postTableViewController.swift */,
 				F984C0041AE5DDF200A2ED04 /* Supporting Files */,
 			);
 			path = TigerCrunch;
@@ -96,6 +96,9 @@
 		F984C0041AE5DDF200A2ED04 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */,
+				F984C00D1AE5DDF200A2ED04 /* Images.xcassets */,
+				F984C00F1AE5DDF200A2ED04 /* LaunchScreen.xib */,
 				F984C0051AE5DDF200A2ED04 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -220,6 +223,7 @@
 			files = (
 				F93B13621AE89C4200505F9F /* SecondViewController.swift in Sources */,
 				F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */,
+				1C71A3351AF1E5A7005B4C26 /* postTableViewController.swift in Sources */,
 				F984C0271AE5FFC000A2ED04 /* CustomCell.swift in Sources */,
 				F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */,
 			);
@@ -351,6 +355,7 @@
 				INFOPLIST_FILE = TigerCrunch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -361,6 +366,7 @@
 				INFOPLIST_FILE = TigerCrunch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

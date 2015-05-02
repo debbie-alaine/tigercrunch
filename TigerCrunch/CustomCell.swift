@@ -11,10 +11,10 @@ import UIKit
 class CustomCell: UITableViewCell {
     
     // variables to be filled in by the JSON
-    @IBOutlet var foodLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var buildingLabel: UILabel!
-    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet weak var foodLabel: UILabel!
+    @IBOutlet weak var buildingLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // ID string related to cell, used for deletion
     var ID = "" as String
