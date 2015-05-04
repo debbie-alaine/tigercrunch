@@ -15,6 +15,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var DescriptionText: UITextField!
     @IBOutlet weak var BuildingText: UITextField!
     @IBOutlet weak var RoomText: UITextField!
+    @IBOutlet weak var DisplayLabel: UILabel!
     
     
     // loading the view
@@ -42,6 +43,7 @@ class SecondViewController: UIViewController {
         // the php script to add post to database
         var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOM_INFO&food=FOOD&description=DESCRIPTION"
         // replace attributes with strings in textbox
+        if FoodText.text != "" && BuildingText.text != "" && RoomText.text != "" {
         urlString = urlString.stringByReplacingOccurrencesOfString("FOOD", withString: FoodText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIPTION", withString: DescriptionText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: BuildingText.text)
@@ -53,6 +55,15 @@ class SecondViewController: UIViewController {
         var response: NSURLResponse? = nil
         var error: NSError? = nil
         let reply = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&error)
+            
+        performSegueWithIdentifier("submit", sender: self)
+            
+        }
+            
+        else {
+            DisplayLabel.textColor = UIColor.redColor()
+            DisplayLabel.text = "Missing Required Field"
+        }
     }
 
     /*

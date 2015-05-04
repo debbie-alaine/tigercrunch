@@ -12,9 +12,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var myTableView: UITableView!
     
+    
     var data: NSArray = []
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         data = dataOfJson("http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php")
