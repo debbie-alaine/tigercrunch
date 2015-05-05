@@ -29,6 +29,7 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 20)!]
     }
     
+    
     func reload() {
         if searchText != nil {
             data = dataOfJson(searchText!)
@@ -49,6 +50,7 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         if let touch = touches.first as? UITouch {
             self.view.endEditing(true)
         }
+        self.postSearchBar.endEditing(true)
         super.touchesBegan(touches , withEvent:event)
     }
     
