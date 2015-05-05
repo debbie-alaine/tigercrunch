@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Post Table View Controller-->
+        <!--TigerCrunch-->
         <scene sceneID="Evf-6D-Wxm">
             <objects>
                 <tableViewController id="8my-7d-AVc" customClass="postTableViewController" customModule="TigerCrunch" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,12 +13,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search me!" minimumFontSize="17" id="YZB-QY-xJs">
-                            <rect key="frame" x="0.0" y="-30" width="600" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="What do you want to eat?" showsCancelButton="YES" id="zQq-TX-xeV">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
-                        </textField>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="post" rowHeight="117" id="scA-9l-eNm" customClass="CustomCell" customModule="TigerCrunch" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -76,10 +75,11 @@
                             <outlet property="delegate" destination="8my-7d-AVc" id="l6y-fy-tlv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cEL-xi-ZZu">
+                    <navigationItem key="navigationItem" title="TigerCrunch" id="cEL-xi-ZZu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qh3-eA-04V"/>
                         <barButtonItem key="rightBarButtonItem" id="Eqn-13-dS2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lTO-Yd-VHb">
-                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <rect key="frame" x="549" y="7" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Post">
@@ -98,7 +98,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <outlet property="searchTextField" destination="YZB-QY-xJs" id="IFS-ie-PaZ"/>
+                        <outlet property="postSearchBar" destination="zQq-TX-xeV" id="Mea-2h-6q5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izD-AK-iRs" userLabel="First Responder" sceneMemberID="firstResponder"/>

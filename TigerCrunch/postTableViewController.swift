@@ -8,7 +8,7 @@
 
 import UIKit
 
-class postTableViewController: UITableViewController, UITextFieldDelegate {
+class postTableViewController: UITableViewController, UITextFieldDelegate, UISearchBarDelegate {
 
     var data: NSArray = []
     var searchText: String? = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php" {
@@ -26,6 +26,7 @@ class postTableViewController: UITableViewController, UITextFieldDelegate {
         }
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 20)!]
     }
     
     func reload() {
@@ -64,6 +65,27 @@ class postTableViewController: UITableViewController, UITextFieldDelegate {
 
         }
         return []
+    }
+    
+    @IBOutlet weak var postSearchBar: UISearchBar! {
+        didSet {
+            postSearchBar.delegate = self
+        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if searchBar == postSearchBar {
+            searchBar.resignFirstResponder()
+            searchText = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/filter.php?search=" + searchBar.text
+        }
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searchText = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php"
+        reload()
+        
     }
     
     override func didReceiveMemoryWarning() {
