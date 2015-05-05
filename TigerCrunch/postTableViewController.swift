@@ -8,20 +8,30 @@
 
 import UIKit
 
-class postTableViewController: UITableViewController {
+class postTableViewController: UITableViewController, UITextFieldDelegate {
 
     var data: NSArray = []
+    var searchText: String? = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php" {
+        didSet {
+            data = []
+            tableView.reloadData()
+            reload()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        data = dataOfJson("http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php")
+        if searchText != nil {
+            data = dataOfJson(searchText!)
+        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
     
-    @IBAction func reload() {
-        data = dataOfJson("http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php")
+    func reload() {
+        if searchText != nil {
+            data = dataOfJson(searchText!)
+        }
         self.tableView.reloadData()
     }
     
@@ -42,14 +52,37 @@ class postTableViewController: UITableViewController {
     }
     
     func dataOfJson(url: String) -> NSArray {
-        let data = NSData(contentsOfURL: NSURL(string: url)!)
-        if data!.length == 0 {return []}
-        else {return (NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSArray)}
+        let URLContents = NSURL(string: url)
+        if let realURLContents = URLContents {
+            let data = NSData(contentsOfURL: realURLContents)
+            if let realData = data {
+                let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(realData, options: nil, error: nil)
+                if let realJson: AnyObject = json {
+                    return realJson as! NSArray
+                }
+            }
+
+        }
+        return []
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            textField.resignFirstResponder()
+            searchText = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/filter.php?search=" + textField.text
+        }
+        return true
     }
     
     // finds the number of elements in array to find number of rows needed
@@ -104,6 +137,25 @@ class postTableViewController: UITableViewController {
     }
 
 
+    struct segueIdentifier {
+        let postDetailView = "PostDetailSegue"
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let segueID = segueIdentifier()
+        if segue.identifier == segueID.postDetailView {
+            if let destination = segue.destinationViewController as? postDetailViewController {
+                if let postIndex = tableView.indexPathForSelectedRow()?.row {
+                    var postDetails = data[postIndex] as! NSDictionary
+                    destination.food = postDetails["food"] as! String
+                    destination.descriptionFood = postDetails["description"] as! String
+                    destination.building = postDetails["building"] as! String
+                    destination.room = postDetails["room_info"] as! String
+                }
+            }
+        }
+    }
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell

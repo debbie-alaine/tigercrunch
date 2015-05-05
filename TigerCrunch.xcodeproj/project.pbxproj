@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C71A3351AF1E5A7005B4C26 /* postTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71A3341AF1E5A7005B4C26 /* postTableViewController.swift */; };
+		1CBBDF201AF862C900727CD5 /* postDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBDF1F1AF862C900727CD5 /* postDetailViewController.swift */; };
 		F93B13621AE89C4200505F9F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B13611AE89C4200505F9F /* SecondViewController.swift */; };
 		F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0061AE5DDF200A2ED04 /* AppDelegate.swift */; };
 		F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F984C0081AE5DDF200A2ED04 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		1C71A3341AF1E5A7005B4C26 /* postTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewController.swift; sourceTree = "<group>"; };
+		1CBBDF1F1AF862C900727CD5 /* postDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postDetailViewController.swift; sourceTree = "<group>"; };
 		F93B13611AE89C4200505F9F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F984C0011AE5DDF200A2ED04 /* TigerCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TigerCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F984C0051AE5DDF200A2ED04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				F93B13611AE89C4200505F9F /* SecondViewController.swift */,
 				F984C0261AE5FFC000A2ED04 /* CustomCell.swift */,
 				F984C00A1AE5DDF200A2ED04 /* Main.storyboard */,
+				1CBBDF1F1AF862C900727CD5 /* postDetailViewController.swift */,
 				1C71A3341AF1E5A7005B4C26 /* postTableViewController.swift */,
 				F984C0041AE5DDF200A2ED04 /* Supporting Files */,
 			);
@@ -224,6 +227,7 @@
 				F93B13621AE89C4200505F9F /* SecondViewController.swift in Sources */,
 				F984C0091AE5DDF200A2ED04 /* ViewController.swift in Sources */,
 				1C71A3351AF1E5A7005B4C26 /* postTableViewController.swift in Sources */,
+				1CBBDF201AF862C900727CD5 /* postDetailViewController.swift in Sources */,
 				F984C0271AE5FFC000A2ED04 /* CustomCell.swift in Sources */,
 				F984C0071AE5DDF200A2ED04 /* AppDelegate.swift in Sources */,
 			);
