@@ -8,20 +8,24 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // TextFields
     @IBOutlet weak var FoodText: UITextField!
     @IBOutlet weak var DescriptionText: UITextField!
-    @IBOutlet weak var BuildingText: UITextField!
     @IBOutlet weak var RoomText: UITextField!
     @IBOutlet weak var DisplayLabel: UILabel!
+    @IBOutlet weak var BuildingLabel: UILabel!
+    @IBOutlet weak var picker: UIPickerView!
     
+    let pickerData = ["Mozzarella","Gorgonzola","Provolone","Brie","Maytag Blue","Sharp Cheddar","Monterrey Jack","Stilton","Gouda","Goat Cheese", "Asiago"]
     
     // loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        picker.delegate = self
+        picker.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +47,11 @@ class SecondViewController: UIViewController {
         // the php script to add post to database
         var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOM_INFO&food=FOOD&description=DESCRIPTION"
         // replace attributes with strings in textbox
-        if FoodText.text != "" && BuildingText.text != "" && RoomText.text != "" {
+        if FoodText.text != "" && RoomText.text != "" {
         urlString = urlString.stringByReplacingOccurrencesOfString("FOOD", withString: FoodText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIPTION", withString: DescriptionText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: BuildingText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("ROOM_INFO", withString: RoomText.text)
+        urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: BuildingLabel.text!)
         
         // run php script
         let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
@@ -65,14 +69,20 @@ class SecondViewController: UIViewController {
             DisplayLabel.text = "Missing Required Field"
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - Delegates and data sources
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //MARK: Delegates
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return pickerData[row]
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        BuildingLabel.text = pickerData[row]
+    }
 }
