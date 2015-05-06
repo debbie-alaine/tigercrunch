@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izD-AK-iRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="375"/>
+            <point key="canvasLocation" x="1454" y="591"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="J8h-Ts-l2a">
@@ -231,7 +231,7 @@
                                 </state>
                                 <connections>
                                     <action selector="claim_press:" destination="xEx-lr-b7p" eventType="touchUpInside" id="vIY-yR-hdC"/>
-                                    <segue destination="8my-7d-AVc" kind="showDetail" id="emJ-cy-Rky"/>
+                                    <segue destination="8FJ-2h-nqd" kind="showDetail" id="B3w-JT-2xT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time posted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fI-hy-og4">
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPK-oP-COI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="1241"/>
+            <point key="canvasLocation" x="832" y="1183"/>
         </scene>
         <!--What's that you got there?-->
         <scene sceneID="dNU-Kj-xDE">
@@ -512,6 +512,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="emJ-cy-Rky"/>
+        <segue reference="B3w-JT-2xT"/>
     </inferredMetricsTieBreakers>
 </document>

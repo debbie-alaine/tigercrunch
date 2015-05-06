@@ -243,7 +243,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         var count = 0
         var plural = ""
         // replace attributes with strings in textbox
-        if FoodText.text != "" && RoomText.text != "" && BuildingLabel.text != "Please Select a Building Below:" && BuildingLabel.text != "" {
+        if FoodText.text != "" && DescriptionText.text != "" && BuildingLabel.text != "Please Select a Building Below:" && BuildingLabel.text != "" {
         urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
@@ -272,7 +272,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 count = count + 1
             }
             
-            if RoomText.text == "" {
+            if DescriptionText.text == "" {
                 if count == 1 {
                 blank_text = blank_text + ", Room"
                 }
