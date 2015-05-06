@@ -16,7 +16,7 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var claimLabel: UILabel!
-    @IBOutlet weak var postTimeLabel: UILabel!
+    @IBOutlet weak var elapsedTimeLabel: UILabel!
 
     
     // ID string related to cell, used for deletion
@@ -32,7 +32,7 @@ class CustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(foodLabelText: String, descriptionLabelText: String, buildingLabelText: String, locationLabelText: String, IDText: String, claimLabelText: String, postTimeLabelText: String)
+    func setCell(foodLabelText: String, descriptionLabelText: String, buildingLabelText: String, locationLabelText: String, IDText: String, claimLabelText: String, elapsedTimeLabelText: String)
     {
         self.foodLabel.text = foodLabelText
         self.descriptionLabel.text = descriptionLabelText
@@ -40,7 +40,7 @@ class CustomCell: UITableViewCell {
         self.locationLabel.text = locationLabelText
         self.ID = IDText
         self.claimLabel.text = claimLabelText
-        self.postTimeLabel.text = postTimeLabelText
+        self.elapsedTimeLabel.text = elapsedTimeLabelText
     }
     
 }

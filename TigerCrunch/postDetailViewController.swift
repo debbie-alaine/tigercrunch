@@ -14,8 +14,7 @@ class postDetailViewController: UIViewController {
     @IBOutlet weak var buildingLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    @IBOutlet weak var postTimeLabel: UILabel!
+    @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var claimLabel: UILabel!
     
@@ -25,7 +24,7 @@ class postDetailViewController: UIViewController {
     var room = String()
     var descriptionFood = String()
     
-    var postTime = String()
+    var elapsedTime = String()
     var time = String()
     var claim = String()
     
@@ -35,7 +34,7 @@ class postDetailViewController: UIViewController {
         roomLabel.text = room
         descriptionLabel.text = descriptionFood
         
-        postTimeLabel.text = postTime + "minutes ago"
+        elapsedTimeLabel.text = elapsedTime + "minutes ago"
         timeLabel.text = time
         claimLabel.text = claim
     }
