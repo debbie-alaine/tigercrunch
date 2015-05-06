@@ -52,13 +52,6 @@ class CustomCell: UITableViewCell {
         let startIndex = advance(elapsed.startIndex, 3)
         elapsed = elapsed.substringFromIndex(startIndex)
         
-        //elapsed_num = elapsed.toInt()
-        
-        //elapsed = String(stringInterpolationSegment: elapsed_num)
-        //elapsed = elapsed.stringByReplacingOccurrencesOfString("Optional", withString: "")
-        //elapsed = elapsed.stringByReplacingOccurrencesOfString("(", withString: "")
-        //elapsed = elapsed.stringByReplacingOccurrencesOfString(")", withString: "")
-        
         self.elapsedTimeLabel.text = elapsedTimeLabelText
     }
     

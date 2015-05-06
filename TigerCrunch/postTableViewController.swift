@@ -151,7 +151,21 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         var expiration = maindata["expiration"] as! String
         
         claim = claim + " claims left"
-        elapsedTime = "Posted " + elapsedTime + " min ago"
+        
+        let endIndex = advance(elapsedTime.startIndex, 5)
+        elapsedTime = elapsedTime.substringToIndex(endIndex)
+        
+        let startIndex = advance(elapsedTime.startIndex, 3)
+        elapsedTime = elapsedTime.substringFromIndex(startIndex)
+        
+        var elapsed_num = elapsedTime.toInt()
+        
+        var elapsed = String(stringInterpolationSegment: elapsed_num)
+        elapsed = elapsed.stringByReplacingOccurrencesOfString("Optional", withString: "")
+        elapsed = elapsed.stringByReplacingOccurrencesOfString("(", withString: "")
+        elapsed = elapsed.stringByReplacingOccurrencesOfString(")", withString: "")
+        
+        elapsedTime = "Posted " + elapsed + " min ago"
         
         cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id, claimLabelText: claim, elapsedTimeLabelText: elapsedTime, expirationLabelText: expiration)
         
