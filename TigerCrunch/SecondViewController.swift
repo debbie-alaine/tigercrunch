@@ -225,6 +225,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         var blank_text = ""
         var count = 0
+        var plural = ""
         // replace attributes with strings in textbox
         if FoodText.text != "" && RoomText.text != "" && BuildingLabel.text != "Please Select a Building Below:" && BuildingLabel.text != "" {
         urlString = urlString.stringByReplacingOccurrencesOfString("FOOD", withString: FoodText.text)
@@ -257,7 +258,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 else
                 {
                     
-                    blank_text = blank_text + "Room"
+                    blank_text = blank_text + " Room"
                 }
                 count = count + 1
             }
@@ -269,19 +270,24 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     
                 }
                 else {
-                  blank_text = blank_text + "Building"
+                  blank_text = blank_text + " Building"
                     count = count + 1
                 }
             }
-            }
+            
                 
             
         
+            if count > 1 {
+             plural = "s"
+            }
+            
             
             DisplayLabel.textColor = UIColor.redColor()
-            DisplayLabel.text = "Missing Required Field" + blank_text
+            DisplayLabel.text = "Missing Required Field" + plural + ": "  + blank_text
             
         }
+    }
     
     //MARK: - Delegates and data sources
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
