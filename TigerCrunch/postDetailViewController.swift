@@ -15,16 +15,29 @@ class postDetailViewController: UIViewController {
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var postTimeLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var claimLabel: UILabel!
+    
+    
     var food = String()
     var building = String()
     var room = String()
     var descriptionFood = String()
+    
+    var postTime = String()
+    var time = String()
+    var claim = String()
     
     override func viewWillAppear(animated: Bool) {
         foodLabel.text = food
         buildingLabel.text = building
         roomLabel.text = room
         descriptionLabel.text = descriptionFood
+        
+        postTimeLabel.text = postTime + "minutes ago"
+        timeLabel.text = time
+        claimLabel.text = claim
     }
     
     override func viewDidLoad() {
