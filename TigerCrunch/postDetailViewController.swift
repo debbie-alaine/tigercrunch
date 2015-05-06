@@ -17,6 +17,7 @@ class postDetailViewController: UIViewController {
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var claimLabel: UILabel!
+    @IBOutlet weak var claim_submit: UIButton!
     
     
     var food = String()
@@ -27,6 +28,7 @@ class postDetailViewController: UIViewController {
     var elapsedTime = String()
     var time = String()
     var claim = String()
+    var ID = String()
     
     override func viewWillAppear(animated: Bool) {
         foodLabel.text = food
@@ -34,8 +36,27 @@ class postDetailViewController: UIViewController {
         roomLabel.text = room
         descriptionLabel.text = descriptionFood
         
-        elapsedTimeLabel.text = elapsedTime + "minutes ago"
-        timeLabel.text = time
+        let endIndex = advance(elapsedTime.startIndex, 5)
+        elapsedTime = elapsedTime.substringToIndex(endIndex)
+        
+        let startIndex = advance(elapsedTime.startIndex, 3)
+        elapsedTime = elapsedTime.substringFromIndex(startIndex)
+        
+        var elapsedTime_num = elapsedTime.toInt()
+        var time_num = time.toInt()
+        var time_left = time_num! - elapsedTime_num!
+        var elapsedTime_str = String(stringInterpolationSegment: elapsedTime_num)
+        elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
+        elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("(", withString: "")
+        elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString(")", withString: "")
+        
+        var time_left_str = String(stringInterpolationSegment: time_left)
+        time_left_str = time_left_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
+        time_left_str = time_left_str.stringByReplacingOccurrencesOfString("(", withString: "")
+        time_left_str = time_left_str.stringByReplacingOccurrencesOfString(")", withString: "")
+        
+        elapsedTimeLabel.text = "Posted " + elapsedTime_str + " minutes ago"
+        timeLabel.text =  time_left_str + " minutes"
         claimLabel.text = claim
     }
     
@@ -50,6 +71,16 @@ class postDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func claim_press(sender: AnyObject) {
+        var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/claimFood.php?id=ID"
+        urlString = urlString.stringByReplacingOccurrencesOfString("ID", withString: ID)
+        let urlPost = NSURL(string:urlString)
+        let request = NSURLRequest(URL:urlPost!)
+        var response: NSURLResponse? = nil
+        var error: NSError? = nil
+        let reply = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&error)
+    }
 
     /*
     // MARK: - Navigation

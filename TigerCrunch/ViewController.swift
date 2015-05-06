@@ -67,8 +67,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var id = maindata["id"] as! String
         var claim = maindata["claim"] as! String
         var post_time = maindata["post_time"] as! String
+        var expiration = maindata["expiration"] as! String
         
-        cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id, claimLabelText: claim, elapsedTimeLabelText: post_time)
+        cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id, claimLabelText: claim, elapsedTimeLabelText: post_time, expirationLabelText: expiration)
         
         return cell
     }

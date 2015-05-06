@@ -17,6 +17,9 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var claimLabel: UILabel!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
+    
+    var elapsed: String!
+    var elapsed_num: Int!
 
     
     // ID string related to cell, used for deletion
@@ -32,7 +35,7 @@ class CustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(foodLabelText: String, descriptionLabelText: String, buildingLabelText: String, locationLabelText: String, IDText: String, claimLabelText: String, elapsedTimeLabelText: String)
+    func setCell(foodLabelText: String, descriptionLabelText: String, buildingLabelText: String, locationLabelText: String, IDText: String, claimLabelText: String, elapsedTimeLabelText: String, expirationLabelText: String)
     {
         self.foodLabel.text = foodLabelText
         self.descriptionLabel.text = descriptionLabelText
@@ -40,6 +43,22 @@ class CustomCell: UITableViewCell {
         self.locationLabel.text = locationLabelText
         self.ID = IDText
         self.claimLabel.text = claimLabelText
+        
+        elapsed = elapsedTimeLabelText
+        
+        let endIndex = advance(elapsed.startIndex, 5)
+        elapsed = elapsed.substringToIndex(endIndex)
+        
+        let startIndex = advance(elapsed.startIndex, 3)
+        elapsed = elapsed.substringFromIndex(startIndex)
+        
+        //elapsed_num = elapsed.toInt()
+        
+        //elapsed = String(stringInterpolationSegment: elapsed_num)
+        //elapsed = elapsed.stringByReplacingOccurrencesOfString("Optional", withString: "")
+        //elapsed = elapsed.stringByReplacingOccurrencesOfString("(", withString: "")
+        //elapsed = elapsed.stringByReplacingOccurrencesOfString(")", withString: "")
+        
         self.elapsedTimeLabel.text = elapsedTimeLabelText
     }
     

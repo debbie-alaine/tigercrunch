@@ -7,21 +7,21 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>04ECB8F8-B23F-401E-B55A-DDC6FB99B84B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TigerCrunch</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1826BA9EC2B9DFAE8AEA4387D6247BFCD265905C</key>
-		<string>https://github.com/debbie-alaine/tigercrunch.git</string>
+		<string>https://github.com/debbie-alaine/tigercrunch</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TigerCrunch.xcodeproj</string>
+	<string>TigerCrunch.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1826BA9EC2B9DFAE8AEA4387D6247BFCD265905C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/debbie-alaine/tigercrunch.git</string>
+	<string>https://github.com/debbie-alaine/tigercrunch</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>1826BA9EC2B9DFAE8AEA4387D6247BFCD265905C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>tigercrunch</string>
+			<string>TigerCrunch</string>
 		</dict>
 	</array>
 </dict>

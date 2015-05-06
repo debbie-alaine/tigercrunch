@@ -237,7 +237,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     // upload the things inside the text fields to the database
     @IBAction func uploadToDatabase() {
         // the php script to add post to database
-        var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOMINFO&food=PUTFOOD&description=DESCRIBE&claim=PORTION"
+        var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOMINFO&food=PUTFOOD&description=DESCRIBE&claim=PORTION&expiration=NUM_IN_MINUTES"
         
         var blank_text = ""
         var count = 0
@@ -252,6 +252,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 ClaimText.text == "1"
             }
         urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: ClaimText.text!)
+        urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: TimeText.text!)
         
         // run php script
         let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
@@ -319,4 +320,5 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         BuildingLabel.text = pickerData[row]
     }
+    
 }
