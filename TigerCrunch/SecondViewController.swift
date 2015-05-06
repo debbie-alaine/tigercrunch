@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // TextFields
     @IBOutlet weak var FoodText: UITextField!
@@ -157,6 +157,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         "New Graduate College",
         "New South Building Renovation",
         "New South Building",
+        "Nassau Hall",
         "North Garage",
         "Olden House",
         "Palmer House",
@@ -196,8 +197,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         "Wright Hall",
         "Wu Hall",
         "Wyman House",
-        "Yoseloff Hall"
-        ]
+        "Yoseloff Hall"]
         
         // loading the view
     override func viewDidLoad() {
@@ -220,6 +220,19 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         super.touchesBegan(touches , withEvent:event)
     }
     
+    @IBOutlet weak var imageDisplayView: UIImageView!
+    
+    @IBAction func imagePhotoButton(sender: UIButton) {
+        var myImagePickerController = UIImagePickerController()
+        myImagePickerController.delegate = self
+        myImagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(myImagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        imageDisplayView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     // upload the things inside the text fields to the database
     @IBAction func uploadToDatabase() {
@@ -281,7 +294,11 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     count = count + 1
                 }
             }
+<<<<<<< HEAD
         
+=======
+            
+>>>>>>> 0cc7acd4c49d9ce6ebe6e221511226e229eca580
             if count > 1 {
              plural = "s"
             }

@@ -26,9 +26,20 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         }
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 20)!]
+        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 24)!]
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 255/255, green: 153/255, blue: 0/255, alpha: 1.0)
+
     }
     
+    // hide search bar when scrolling
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == self.tableView {
+            postSearchBar.resignFirstResponder()
+            if postSearchBar.text.isEmpty {
+                postSearchBar.setShowsCancelButton(false, animated: true)
+            }
+        }
+    }
     
     func reload() {
         if searchText != nil {
@@ -64,7 +75,6 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
                     return realJson as! NSArray
                 }
             }
-
         }
         return []
     }
@@ -83,11 +93,20 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        searchText = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php"
-        reload()
-        
+        if searchBar == postSearchBar {
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchText = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/getFood.php"
+            reload()
+        }
+    }
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        if searchBar == postSearchBar {
+            searchBar.setShowsCancelButton(true, animated: true)
+        }
+        return true
     }
     
     override func didReceiveMemoryWarning() {
