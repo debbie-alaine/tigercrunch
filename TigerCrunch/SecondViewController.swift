@@ -14,6 +14,9 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var FoodText: UITextField!
     @IBOutlet weak var DescriptionText: UITextField!
     @IBOutlet weak var RoomText: UITextField!
+    @IBOutlet weak var TimeText: UITextField!
+    @IBOutlet weak var ClaimText: UITextField!
+    
     @IBOutlet weak var DisplayLabel: UILabel!
     @IBOutlet weak var BuildingLabel: UILabel!
     @IBOutlet weak var picker: UIPickerView!
@@ -221,16 +224,20 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     // upload the things inside the text fields to the database
     @IBAction func uploadToDatabase() {
         // the php script to add post to database
-        var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOM_INFO&food=FOOD&description=DESCRIPTION"
+        var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOMINFO&food=PUTFOOD&description=DESCRIBE&claim=PORTION"
         
         var blank_text = ""
         var count = 0
         // replace attributes with strings in textbox
         if FoodText.text != "" && RoomText.text != "" && BuildingLabel.text != "Please Select a Building Below:" && BuildingLabel.text != "" {
-        urlString = urlString.stringByReplacingOccurrencesOfString("FOOD", withString: FoodText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIPTION", withString: DescriptionText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("ROOM_INFO", withString: RoomText.text)
+        urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
+        urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
+        urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: BuildingLabel.text!)
+            if ClaimText.text == "" {
+                ClaimText.text == "1"
+            }
+        urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: ClaimText.text!)
         
         // run php script
         let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
@@ -274,13 +281,9 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 }
             }
             }
-                
-            
-        
             
             DisplayLabel.textColor = UIColor.redColor()
             DisplayLabel.text = "Missing Required Field" + blank_text
-            
         }
     
     //MARK: - Delegates and data sources
