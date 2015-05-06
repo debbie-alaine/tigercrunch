@@ -147,6 +147,9 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         var location = maindata["room_info"] as! String
         var id = maindata["id"] as! String
         
+        //var postTime = (maindata["postTime"] + "minutes ago") + as! String
+        
+        // add -> postTimeLabelText: postTime
         cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id)
         
         return cell
@@ -194,6 +197,9 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
                     destination.descriptionFood = postDetails["description"] as! String
                     destination.building = postDetails["building"] as! String
                     destination.room = postDetails["room_info"] as! String
+                    //destination.postTime = postDetails["postTime"] as! String
+                    //destination.time = postDetails["time"] as! String
+                    //destination.claim = postDetails["claim"] as! String
                 }
             }
         }

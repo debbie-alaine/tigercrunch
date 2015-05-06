@@ -29,6 +29,7 @@ class CustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // ADD postTimeLabelText: String
     func setCell(foodLabelText: String, descriptionLabelText: String, buildingLabelText: String, locationLabelText: String, IDText: String)
     {
         self.foodLabel.text = foodLabelText
@@ -36,6 +37,8 @@ class CustomCell: UITableViewCell {
         self.buildingLabel.text = buildingLabelText
         self.locationLabel.text = locationLabelText
         self.ID = IDText
+        
+        //self.postTimeLabel.text = postTimeLabelText
     }
     
 }
