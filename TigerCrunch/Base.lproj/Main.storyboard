@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8FJ-2h-nqd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8FJ-2h-nqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Unknown constraint types" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--TigerCrunch-->
@@ -97,10 +98,11 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="qh3-eA-04V"/>
                         <barButtonItem key="rightBarButtonItem" id="Eqn-13-dS2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lTO-Yd-VHb">
-                                <rect key="frame" x="549" y="12" width="40" height="20"/>
+                                <rect key="frame" x="544" y="12" width="45" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -233,9 +235,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPK-oP-COI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="1347"/>
+            <point key="canvasLocation" x="1709" y="1399"/>
         </scene>
-        <!--Second View Controller-->
+        <!--What's that you got there?-->
         <scene sceneID="dNU-Kj-xDE">
             <objects>
                 <viewController id="dNG-90-E5i" customClass="SecondViewController" customModule="TigerCrunch" customModuleProvider="target" sceneMemberID="viewController">
@@ -249,10 +251,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qy1-zg-dtS">
                                 <rect key="frame" x="0.0" y="558" width="600" height="43"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <state key="normal" title="Submit!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -290,16 +292,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jck-Mp-RdT">
-                                <rect key="frame" x="117" y="329" width="316" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="316" id="6Yl-VN-Ifq"/>
-                                    <constraint firstAttribute="height" constant="28" id="kDk-C5-pEk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcW-wL-6Na">
                                 <rect key="frame" x="117" y="156" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -405,7 +397,7 @@
                             <constraint firstItem="GvU-Gl-B2b" firstAttribute="leading" secondItem="gAk-iu-v5l" secondAttribute="leading" constant="155" id="hwq-r2-81M"/>
                             <constraint firstItem="qy1-zg-dtS" firstAttribute="leading" secondItem="gAk-iu-v5l" secondAttribute="leading" id="jUA-wp-5NN"/>
                             <constraint firstAttribute="centerX" secondItem="QPI-b0-oAK" secondAttribute="centerX" constant="-0.5" id="k4P-5f-3B0"/>
-                            <constraint firstItem="yoc-tP-Q63" firstAttribute="leading" secondItem="gAk-iu-v5l" secondAttribute="leadingMargin" id="kQb-E9-1SA"/>
+                            <constraint firstAttribute="leading" secondItem="gAk-iu-v5l" secondAttribute="leadingMargin" id="kQb-E9-1SA"/>
                             <constraint firstAttribute="bottom" secondItem="jck-Mp-RdT" secondAttribute="bottom" constant="254" id="ljL-ds-Gbu"/>
                             <constraint firstItem="PYL-dk-UAG" firstAttribute="top" secondItem="Iub-2b-tpS" secondAttribute="bottom" constant="15" id="nJn-bI-6Kk"/>
                             <constraint firstItem="LBo-GT-Ido" firstAttribute="leading" secondItem="gAk-iu-v5l" secondAttribute="leadingMargin" constant="-5" id="pQU-db-X2g"/>
@@ -431,6 +423,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="What's that you got there?" id="5uq-77-ukf"/>
                     <connections>
                         <outlet property="BuildingLabel" destination="PDr-RC-V9U" id="saV-uX-n9n"/>
                         <outlet property="ClaimText" destination="PYL-dk-UAG" id="5uC-WL-zZu"/>
@@ -446,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCW-KF-GeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="-144"/>
+            <point key="canvasLocation" x="1709" y="-216"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dpr-7E-lkz">
@@ -464,8 +457,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PN-xX-oBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="608"/>
+            <point key="canvasLocation" x="881" y="595"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

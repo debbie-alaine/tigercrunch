@@ -294,11 +294,6 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     count = count + 1
                 }
             }
-<<<<<<< HEAD
-        
-=======
-            
->>>>>>> 0cc7acd4c49d9ce6ebe6e221511226e229eca580
             if count > 1 {
              plural = "s"
             }
