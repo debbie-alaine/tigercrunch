@@ -281,15 +281,6 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     count = count + 1
                 }
             }
-<<<<<<< HEAD
-            }
-            
-            DisplayLabel.textColor = UIColor.redColor()
-            DisplayLabel.text = "Missing Required Field" + blank_text
-=======
-            
-                
-            
         
             if count > 1 {
              plural = "s"
@@ -298,8 +289,6 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             
             DisplayLabel.textColor = UIColor.redColor()
             DisplayLabel.text = "Missing Required Field" + plural + ": "  + blank_text
-            
->>>>>>> 8f8cc232d9ed0cdfc282ef84866e7a1610d498ee
         }
     }
     

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8FJ-2h-nqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,8 +25,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="scA-9l-eNm" id="JnG-jt-o3l">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9F-hg-BCv">
-                                            <rect key="frame" x="8" y="8" width="41" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9F-hg-BCv">
+                                            <rect key="frame" x="8" y="8" width="39" height="20"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -48,10 +49,25 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q8-TD-04m">
+                                            <rect key="frame" x="8" y="87" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtY-Uv-9sm">
+                                            <rect key="frame" x="517" y="8" width="42" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="w2W-os-80b" firstAttribute="top" secondItem="K9F-hg-BCv" secondAttribute="bottom" constant="8" id="410-XR-k7J"/>
+                                        <constraint firstItem="VtY-Uv-9sm" firstAttribute="trailing" secondItem="JnG-jt-o3l" secondAttribute="trailingMargin" id="5o3-3L-2Vr"/>
+                                        <constraint firstItem="K9F-hg-BCv" firstAttribute="width" secondItem="VtY-Uv-9sm" secondAttribute="height" multiplier="41:21" id="8b7-bQ-Y6f"/>
                                         <constraint firstItem="MWj-HS-mNz" firstAttribute="leading" secondItem="JnG-jt-o3l" secondAttribute="leadingMargin" id="CtT-fy-8RS"/>
+                                        <constraint firstItem="VtY-Uv-9sm" firstAttribute="top" secondItem="K9F-hg-BCv" secondAttribute="top" id="DTf-li-YZA"/>
                                         <constraint firstItem="MWj-HS-mNz" firstAttribute="trailing" secondItem="JnG-jt-o3l" secondAttribute="trailingMargin" id="Xyo-sl-JhX"/>
                                         <constraint firstItem="K9F-hg-BCv" firstAttribute="leading" secondItem="JnG-jt-o3l" secondAttribute="leadingMargin" id="cq9-dU-UWD"/>
                                         <constraint firstItem="yLi-Jj-h5p" firstAttribute="baseline" secondItem="w2W-os-80b" secondAttribute="baseline" id="eNb-nu-KpN"/>
@@ -63,9 +79,11 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="buildingLabel" destination="w2W-os-80b" id="EcP-4p-22W"/>
+                                    <outlet property="claimLabel" destination="5q8-TD-04m" id="P6w-QB-lM5"/>
                                     <outlet property="descriptionLabel" destination="MWj-HS-mNz" id="xEb-bT-j9e"/>
                                     <outlet property="foodLabel" destination="K9F-hg-BCv" id="6wb-4Y-idt"/>
                                     <outlet property="locationLabel" destination="yLi-Jj-h5p" id="pTt-4P-ucG"/>
+                                    <outlet property="postTimeLabel" destination="VtY-Uv-9sm" id="k2P-b5-FPC"/>
                                     <segue destination="xEx-lr-b7p" kind="show" identifier="PostDetailSegue" id="2D5-Ro-cSV"/>
                                 </connections>
                             </tableViewCell>
@@ -103,7 +121,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izD-AK-iRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="620"/>
+            <point key="canvasLocation" x="1709" y="595"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="J8h-Ts-l2a">
@@ -155,9 +173,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-yi-sJK">
-                                <rect key="frame" x="169" y="338" width="263" height="209"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Left:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYd-Yv-BWM">
                                 <rect key="frame" x="16" y="237" width="77" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -188,6 +203,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-yi-sJK">
+                                <rect key="frame" x="117" y="334" width="263" height="209"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -410,7 +428,6 @@
                         <outlet property="Picker" destination="QPI-b0-oAK" id="yGJ-WD-KfW"/>
                         <outlet property="RoomText" destination="dcW-wL-6Na" id="Zcp-AK-L5V"/>
                         <outlet property="TimeText" destination="Iub-2b-tpS" id="vvv-cB-aha"/>
-                        <outlet property="claimLabel" destination="PYL-dk-UAG" id="PDt-XZ-nHA"/>
                         <outlet property="picker" destination="QPI-b0-oAK" id="0wR-1z-9lb"/>
                         <segue destination="8FJ-2h-nqd" kind="showDetail" identifier="submit" id="yim-0I-ye7"/>
                     </connections>

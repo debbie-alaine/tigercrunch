@@ -65,8 +65,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var building = maindata["building"] as! String
         var location = maindata["room_info"] as! String
         var id = maindata["id"] as! String
+        var claim = maindata["claim"] as! String
+        var post_time = maindata["post_time"] as! String
         
-        cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id)
+        cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id, claimLabelText: claim, postTimeLabelText: post_time)
         
         return cell
     }
