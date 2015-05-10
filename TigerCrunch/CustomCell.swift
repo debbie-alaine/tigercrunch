@@ -47,14 +47,12 @@ class CustomCell: UITableViewCell {
         elapsed = elapsedTimeLabelText
         
         if elapsed != "-" {
-        
             let endIndex = advance(elapsed.startIndex, 5)
             elapsed = elapsed.substringToIndex(endIndex)
             
             let startIndex = advance(elapsed.startIndex, 3)
             elapsed = elapsed.substringFromIndex(startIndex)
         }
-        
         self.elapsedTimeLabel.text = elapsedTimeLabelText
     }
     

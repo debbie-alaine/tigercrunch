@@ -156,7 +156,6 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         var expiration = maindata["expiration"] as! String
         
         claim = claim + " claims left"
-
         
         cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id, claimLabelText: claim, elapsedTimeLabelText: elapsedTime, expirationLabelText: expiration)
         
