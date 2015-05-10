@@ -46,18 +46,14 @@ class CustomCell: UITableViewCell {
         
         elapsed = elapsedTimeLabelText
         
-        let endIndex = advance(elapsed.startIndex, 5)
-        elapsed = elapsed.substringToIndex(endIndex)
+        if elapsed != "-" {
         
-        let startIndex = advance(elapsed.startIndex, 3)
-        elapsed = elapsed.substringFromIndex(startIndex)
-        
-        //elapsed_num = elapsed.toInt()
-        
-        //elapsed = String(stringInterpolationSegment: elapsed_num)
-        //elapsed = elapsed.stringByReplacingOccurrencesOfString("Optional", withString: "")
-        //elapsed = elapsed.stringByReplacingOccurrencesOfString("(", withString: "")
-        //elapsed = elapsed.stringByReplacingOccurrencesOfString(")", withString: "")
+            let endIndex = advance(elapsed.startIndex, 5)
+            elapsed = elapsed.substringToIndex(endIndex)
+            
+            let startIndex = advance(elapsed.startIndex, 3)
+            elapsed = elapsed.substringFromIndex(startIndex)
+        }
         
         self.elapsedTimeLabel.text = elapsedTimeLabelText
     }

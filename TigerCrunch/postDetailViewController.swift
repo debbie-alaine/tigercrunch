@@ -36,6 +36,10 @@ class postDetailViewController: UIViewController {
         roomLabel.text = room
         descriptionLabel.text = descriptionFood
         
+        var time_left = 0
+        
+        if elapsedTime != "-" {
+        
         let endIndex = advance(elapsedTime.startIndex, 5)
         elapsedTime = elapsedTime.substringToIndex(endIndex)
         
@@ -44,18 +48,19 @@ class postDetailViewController: UIViewController {
         
         var elapsedTime_num = elapsedTime.toInt()
         var time_num = time.toInt()
-        var time_left = time_num! - elapsedTime_num!
+        time_left = time_num! - elapsedTime_num!
         var elapsedTime_str = String(stringInterpolationSegment: elapsedTime_num)
         elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
         elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("(", withString: "")
-        elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString(")", withString: "")
+        elapsedTime = elapsedTime_str.stringByReplacingOccurrencesOfString(")", withString: "")
+        }
         
         var time_left_str = String(stringInterpolationSegment: time_left)
         time_left_str = time_left_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
         time_left_str = time_left_str.stringByReplacingOccurrencesOfString("(", withString: "")
         time_left_str = time_left_str.stringByReplacingOccurrencesOfString(")", withString: "")
         
-        elapsedTimeLabel.text = "Posted " + elapsedTime_str + " minutes ago"
+        elapsedTimeLabel.text = "Posted " + elapsedTime + " minutes ago"
         timeLabel.text =  time_left_str + " minutes"
         claimLabel.text = claim
     }

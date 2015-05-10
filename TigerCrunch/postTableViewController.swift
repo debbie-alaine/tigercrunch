@@ -147,11 +147,16 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         var location = maindata["room_info"] as! String
         var id = maindata["id"] as! String
         var claim = maindata["claim"] as! String
-        var elapsedTime = maindata["elapsed_time"] as! String
+        var elapsed = maindata["elapsed_time"] as? String
+        var elapsedTime: String = "-"
+        if let realElapsed = elapsed {
+             elapsedTime = "Posted " + realElapsed + " ago"
+        }
+
         var expiration = maindata["expiration"] as! String
         
         claim = claim + " claims left"
-        elapsedTime = "Posted " + elapsedTime + " min ago"
+
         
         cell.setCell(food, descriptionLabelText: description, buildingLabelText: building, locationLabelText: location, IDText: id, claimLabelText: claim, elapsedTimeLabelText: elapsedTime, expirationLabelText: expiration)
         
@@ -200,7 +205,12 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
                     destination.descriptionFood = postDetails["description"] as! String
                     destination.building = postDetails["building"] as! String
                     destination.room = postDetails["room_info"] as! String
-                    destination.elapsedTime = postDetails["elapsed_time"] as! String
+                    var elapsed = postDetails["elapsed_time"] as? String
+                    var elapsedTime: String = "-"
+                    if let realElapsed = elapsed {
+                        elapsedTime = realElapsed
+                    }
+                    destination.elapsedTime = elapsedTime
                     destination.time = postDetails["expiration"] as! String
                     destination.claim = postDetails["claim"] as! String
                     destination.ID = postDetails["id"] as! String
