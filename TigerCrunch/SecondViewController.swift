@@ -23,9 +23,9 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var expirationPicker: UIPickerView!
     @IBOutlet weak var portionPicker: UIPickerView!
     
-    var building: String = ""
-    var expirationTime: String = ""
-    var numberOfPortions: String = ""
+    var building: String = "106 Alexander St."
+    var expirationTime: String = "1"
+    var numberOfPortions: String = "1"
     
     
     let buildingPickerData = [
@@ -289,7 +289,6 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
         // replace attributes with strings in textbox
         if FoodText.text != "" && RoomText.text != "" {
-            println(numberOfPortions)
             
             urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
             urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
