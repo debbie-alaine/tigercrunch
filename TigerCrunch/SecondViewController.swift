@@ -12,8 +12,8 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     // TextFields
     @IBOutlet weak var FoodText: UITextField!
-    @IBOutlet weak var DescriptionText: UITextField!
     @IBOutlet weak var RoomText: UITextField!
+    @IBOutlet weak var DescriptionText: UITextField!
     @IBOutlet weak var TimeText: UITextField!
     @IBOutlet weak var ClaimText: UITextField!
     
@@ -220,20 +220,6 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         super.touchesBegan(touches , withEvent:event)
     }
     
-    @IBOutlet weak var imageDisplayView: UIImageView!
-    
-    @IBAction func imagePhotoButton(sender: UIButton) {
-        var myImagePickerController = UIImagePickerController()
-        myImagePickerController.delegate = self
-        myImagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(myImagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        imageDisplayView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     // upload the things inside the text fields to the database
     @IBAction func uploadToDatabase() {
         // the php script to add post to database
@@ -242,8 +228,9 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         var blank_text = ""
         var count = 0
         var plural = ""
+    
         // replace attributes with strings in textbox
-        if FoodText.text != "" && DescriptionText.text != "" && BuildingLabel.text != "Please Select a Building Below:" && BuildingLabel.text != "" {
+        if FoodText.text != "" && RoomText.text != "" && BuildingLabel.text != "Please Select a Building Below" && BuildingLabel.text != "" {
         urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
@@ -272,31 +259,30 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 count = count + 1
             }
             
-            if DescriptionText.text == "" {
+            if RoomText.text == "" {
                 if count == 1 {
-                blank_text = blank_text + ", Room"
+                    blank_text = blank_text + ", Room"
                 }
-                else
-                {
+                else {
                     
                     blank_text = blank_text + " Room"
                 }
                 count = count + 1
             }
             
-            if BuildingLabel.text == "" || BuildingLabel.text == "Please Select a Building Below:"{
-                    if count >= 1 {
-                blank_text = blank_text + ", Building"
+            if BuildingLabel.text == "" || BuildingLabel.text == "Please Select a Building Below" {
+                if count >= 1 {
+                    blank_text = blank_text + ", Building"
                     count = count + 1
                     
                 }
                 else {
-                  blank_text = blank_text + " Building"
+                    blank_text = blank_text + " Building"
                     count = count + 1
                 }
             }
             if count > 1 {
-             plural = "s"
+                plural = "s"
             }
             
             

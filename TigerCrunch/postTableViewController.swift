@@ -149,8 +149,9 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         var claim = maindata["claim"] as! String
         var elapsed = maindata["elapsed_time"] as? String
         var elapsedTime: String = "-"
-        if let realElapsed = elapsed {
-             elapsedTime = "Posted " + realElapsed + " ago"
+        if let elapsedFormatted = elapsed {
+            var elapsedSplit = split(elapsedFormatted) {$0 == ":"}
+            elapsedTime = elapsedSplit[0] + "h " + elapsedSplit[1] + "m"
         }
 
         var expiration = maindata["expiration"] as! String
