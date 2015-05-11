@@ -19,9 +19,13 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBOutlet weak var DisplayLabel: UILabel!
     @IBOutlet weak var BuildingLabel: UILabel!
-    @IBOutlet weak var picker: UIPickerView!
+
+    @IBOutlet weak var buildingPicker: UIPickerView!
+    @IBOutlet weak var expirationPicker: UIPickerView!
+    @IBOutlet weak var portionPicker: UIPickerView!
     
-    let pickerData = ["",
+    
+    let buildingPickerData = [
         "106 Alexander St.",
         "116 Prospect Ave.",
         "130 University Place",
@@ -197,14 +201,69 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         "Wright Hall",
         "Wu Hall",
         "Wyman House",
-        "Yoseloff Hall"]
-        
-        // loading the view
+        "Yoseloff Hall"
+        ]
+    
+    let expirationPickerData = [
+        "1 hr",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24"
+    ]
+    
+    let portionPickerData = [
+        "1 ppl",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+    ]
+    
+    // loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        picker.delegate = self
-        picker.dataSource = self
+        buildingPicker.delegate = self
+        buildingPicker.dataSource = self
+        expirationPicker.delegate = self
+        expirationPicker.dataSource = self
+        portionPicker.delegate = self
+        portionPicker.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -296,15 +355,36 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         return 1
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        switch pickerView {
+        case buildingPicker:
+            return buildingPickerData.count
+        case expirationPicker:
+            return expirationPickerData.count
+        case portionPicker:
+            return portionPickerData.count
+        default:
+            return 0
+        }
     }
     
     //MARK: Delegates
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return pickerData[row]
+        switch pickerView {
+        case buildingPicker:
+            return buildingPickerData[row]
+        case expirationPicker:
+            return expirationPickerData[row]
+        case portionPicker:
+            return portionPickerData[row]
+        default:
+            return ""
+        }
     }
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        BuildingLabel.text = pickerData[row]
+        if pickerView == buildingPicker {
+            //BuildingLabel.text = buildingPickerData[row]
+        }
     }
     
 }
