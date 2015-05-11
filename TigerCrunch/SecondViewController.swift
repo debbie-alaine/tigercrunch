@@ -289,21 +289,23 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
         // replace attributes with strings in textbox
         if FoodText.text != "" && RoomText.text != "" {
-        urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: building)
-        urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: numberOfPortions)
-        urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: expirationTime)
-        
-        // run php script
-        let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
-        let request = NSURLRequest(URL:urlPost!)
-        var response: NSURLResponse? = nil
-        var error: NSError? = nil
-        let reply = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&error)
+            println(numberOfPortions)
             
-        performSegueWithIdentifier("submit", sender: self)
+            urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
+            urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
+            urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
+            urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: building)
+            urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: numberOfPortions)
+            urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: expirationTime)
+            
+            // run php script
+            let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+            let request = NSURLRequest(URL:urlPost!)
+            var response: NSURLResponse? = nil
+            var error: NSError? = nil
+            let reply = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&error)
+                
+            performSegueWithIdentifier("submit", sender: self)
             
         }
             

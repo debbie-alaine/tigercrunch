@@ -36,32 +36,37 @@ class postDetailViewController: UIViewController {
         roomLabel.text = room
         descriptionLabel.text = descriptionFood
         
-        var time_left = 0
+//        var time_left = 0
+        
         
         if elapsedTime != "-" {
-        
-        let endIndex = advance(elapsedTime.startIndex, 5)
-        elapsedTime = elapsedTime.substringToIndex(endIndex)
-        
-        let startIndex = advance(elapsedTime.startIndex, 3)
-        elapsedTime = elapsedTime.substringFromIndex(startIndex)
-        
-        var elapsedTime_num = elapsedTime.toInt()
-        var time_num = time.toInt()
-        time_left = time_num! - elapsedTime_num!
-        var elapsedTime_str = String(stringInterpolationSegment: elapsedTime_num)
-        elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
-        elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("(", withString: "")
-        elapsedTime = elapsedTime_str.stringByReplacingOccurrencesOfString(")", withString: "")
+            var elapsedSplit = split(elapsedTime) {$0 == ":"}
+            elapsedTime = elapsedSplit[0] + "h " + elapsedSplit[1] + "m " + elapsedSplit[2] + "s"
+            
+            
+//            let endIndex = advance(elapsedTime.startIndex, 5)
+//            elapsedTime = elapsedTime.substringToIndex(endIndex)
+//            
+//            let startIndex = advance(elapsedTime.startIndex, 3)
+//            elapsedTime = elapsedTime.substringFromIndex(startIndex)
+//            
+//            var elapsedTime_num = elapsedTime.toInt()
+//            var time_num = time.toInt()
+//            time_left = time_num! - elapsedTime_num!
+//            var elapsedTime_str = String(stringInterpolationSegment: elapsedTime_num)
+//            elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
+//            elapsedTime_str = elapsedTime_str.stringByReplacingOccurrencesOfString("(", withString: "")
+//            elapsedTime = elapsedTime_str.stringByReplacingOccurrencesOfString(")", withString: "")
         }
         
-        var time_left_str = String(stringInterpolationSegment: time_left)
-        time_left_str = time_left_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
-        time_left_str = time_left_str.stringByReplacingOccurrencesOfString("(", withString: "")
-        time_left_str = time_left_str.stringByReplacingOccurrencesOfString(")", withString: "")
+//        var time_left_str = String(stringInterpolationSegment: time_left)
+//        time_left_str = time_left_str.stringByReplacingOccurrencesOfString("Optional", withString: "")
+//        time_left_str = time_left_str.stringByReplacingOccurrencesOfString("(", withString: "")
+//        time_left_str = time_left_str.stringByReplacingOccurrencesOfString(")", withString: "")
         
-        elapsedTimeLabel.text = "Posted " + elapsedTime + " minutes ago"
-        timeLabel.text =  time_left_str + " minutes"
+        elapsedTimeLabel.text = "Posted " + elapsedTime + " ago"
+//        timeLabel.text =  time_left_str + " hours"
+        timeLabel.text = time + " hours"
         claimLabel.text = claim
     }
     
