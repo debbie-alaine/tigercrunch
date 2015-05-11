@@ -180,13 +180,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="rrz-yd-7Fw">
-                                <rect key="frame" x="98" y="139" width="486" height="22"/>
+                                <rect key="frame" x="98" y="201" width="486" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="1zz-Js-imH">
+                                <rect key="frame" x="16" y="479" width="568" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="1VM-bX-6y5"/>
+                                    <constraint firstAttribute="width" constant="453" id="nEV-It-l6Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1VM-bX-6y5"/>
+                                        <exclude reference="nEV-It-l6Y"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Room" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pqR-o2-E1v">
-                                <rect key="frame" x="79" y="201" width="505" height="22"/>
+                                <rect key="frame" x="79" y="263" width="505" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="568" id="CpU-G8-8WW"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="199" id="Da6-4N-bsI"/>
@@ -255,12 +271,6 @@
                                     <segue destination="8FJ-2h-nqd" kind="showDetail" id="B3w-JT-2xT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time posted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fI-hy-og4">
-                                <rect key="frame" x="16" y="263" width="96" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="claim" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4s-lb-uZn">
                                 <rect key="frame" x="136" y="387" width="448" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -268,7 +278,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Room:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQO-WZ-wcS">
-                                <rect key="frame" x="16" y="201" width="55" height="22"/>
+                                <rect key="frame" x="16" y="263" width="55" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="6R5-yi-dgF"/>
                                 </constraints>
@@ -282,7 +292,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Building:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB8-Dm-vF7">
-                                <rect key="frame" x="16" y="139" width="74" height="22"/>
+                                <rect key="frame" x="16" y="201" width="74" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="S7O-Nk-NrY"/>
                                 </constraints>
@@ -301,21 +311,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="1zz-Js-imH">
-                                <rect key="frame" x="16" y="479" width="568" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="1VM-bX-6y5"/>
-                                    <constraint firstAttribute="width" constant="453" id="nEV-It-l6Y"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time posted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fI-hy-og4">
+                                <rect key="frame" x="16" y="139" width="96" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1VM-bX-6y5"/>
-                                        <exclude reference="nEV-It-l6Y"/>
-                                    </mask>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -362,6 +362,8 @@
                             <constraint firstItem="9fI-hy-og4" firstAttribute="top" secondItem="HQO-WZ-wcS" secondAttribute="bottom" constant="40" id="eZP-4v-EC3"/>
                             <constraint firstItem="1zz-Js-imH" firstAttribute="top" secondItem="Nzn-8L-M25" secondAttribute="bottom" constant="8" symbolic="YES" id="guh-SP-L14"/>
                             <constraint firstItem="fWs-I4-LZl" firstAttribute="top" secondItem="Wo2-qF-cfV" secondAttribute="bottom" constant="40" id="hJo-nf-8Rk"/>
+                            <constraint firstItem="aB8-Dm-vF7" firstAttribute="top" secondItem="9fI-hy-og4" secondAttribute="bottom" constant="40" id="hSM-Hd-sUz"/>
+                            <constraint firstItem="WYd-Yv-BWM" firstAttribute="top" secondItem="HQO-WZ-wcS" secondAttribute="bottom" constant="40" id="hUg-8W-bT5"/>
                             <constraint firstItem="SxT-Hn-jUT" firstAttribute="top" secondItem="1zz-Js-imH" secondAttribute="bottom" constant="8" symbolic="YES" id="jHd-3V-UYH"/>
                             <constraint firstItem="SxT-Hn-jUT" firstAttribute="leading" secondItem="v81-Be-hrs" secondAttribute="leading" id="jbz-74-n0L"/>
                             <constraint firstItem="rrz-yd-7Fw" firstAttribute="baseline" secondItem="aB8-Dm-vF7" secondAttribute="baseline" id="k28-b9-wSr"/>
@@ -373,6 +375,7 @@
                             <constraint firstItem="fWs-I4-LZl" firstAttribute="leading" secondItem="v81-Be-hrs" secondAttribute="leadingMargin" id="nb8-qc-pCT"/>
                             <constraint firstItem="HQO-WZ-wcS" firstAttribute="leading" secondItem="9fI-hy-og4" secondAttribute="leading" id="pWv-KL-gm1"/>
                             <constraint firstItem="HQO-WZ-wcS" firstAttribute="leading" secondItem="v81-Be-hrs" secondAttribute="leadingMargin" id="qZP-MB-VrO"/>
+                            <constraint firstItem="9fI-hy-og4" firstAttribute="top" secondItem="Gbu-QD-Sv8" secondAttribute="bottom" constant="40" id="qmj-2C-K9C"/>
                             <constraint firstItem="HQO-WZ-wcS" firstAttribute="leading" secondItem="WYd-Yv-BWM" secondAttribute="leading" id="qxI-px-sBQ"/>
                             <constraint firstItem="SxT-Hn-jUT" firstAttribute="bottom" secondItem="qXd-TY-cfD" secondAttribute="top" id="rIF-Lf-3Oe"/>
                             <constraint firstItem="pqR-o2-E1v" firstAttribute="trailing" secondItem="v81-Be-hrs" secondAttribute="trailingMargin" id="raY-OK-rnO"/>
@@ -390,7 +393,10 @@
                                 <exclude reference="1ib-ip-DOr"/>
                                 <exclude reference="mfD-v4-lGh"/>
                                 <exclude reference="wPR-lj-GNx"/>
+                                <exclude reference="3Q3-Bx-mH9"/>
+                                <exclude reference="eZP-4v-EC3"/>
                                 <exclude reference="H6o-PM-uCa"/>
+                                <exclude reference="soJ-an-w97"/>
                                 <exclude reference="0ue-ww-iWg"/>
                                 <exclude reference="7CQ-Ts-zab"/>
                                 <exclude reference="9vl-fY-Lty"/>
@@ -404,8 +410,8 @@
                                 <exclude reference="vSf-wC-zUa"/>
                                 <exclude reference="wzT-DW-W5T"/>
                                 <exclude reference="yur-Hg-ejd"/>
-                                <exclude reference="3Q3-Bx-mH9"/>
                                 <exclude reference="3b9-Ef-HmD"/>
+                                <exclude reference="vvG-g9-XYV"/>
                                 <exclude reference="HmV-Wi-Tf9"/>
                                 <exclude reference="Scb-8D-iBJ"/>
                                 <exclude reference="hJo-nf-8Rk"/>
