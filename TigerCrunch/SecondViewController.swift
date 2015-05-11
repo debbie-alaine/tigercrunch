@@ -10,19 +10,22 @@ import UIKit
 
 class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // TextFields
+    // Labels
+    @IBOutlet weak var foodLabel: UILabel!
+    @IBOutlet weak var roomLabel: UILabel!
+    
+    // Text Fields
     @IBOutlet weak var FoodText: UITextField!
     @IBOutlet weak var RoomText: UITextField!
     @IBOutlet weak var DescriptionText: UITextField!
-    @IBOutlet weak var TimeText: UITextField!
-    @IBOutlet weak var ClaimText: UITextField!
-    
-    @IBOutlet weak var DisplayLabel: UILabel!
-    @IBOutlet weak var BuildingLabel: UILabel!
 
     @IBOutlet weak var buildingPicker: UIPickerView!
     @IBOutlet weak var expirationPicker: UIPickerView!
     @IBOutlet weak var portionPicker: UIPickerView!
+    
+    var building: String = ""
+    var expirationTime: String = ""
+    var numberOfPortions: String = ""
     
     
     let buildingPickerData = [
@@ -205,7 +208,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         ]
     
     let expirationPickerData = [
-        "1 hr",
+        "1",
         "2",
         "3",
         "4",
@@ -232,7 +235,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     ]
     
     let portionPickerData = [
-        "1 ppl",
+        "1",
         "2",
         "3",
         "4",
@@ -283,22 +286,15 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBAction func uploadToDatabase() {
         // the php script to add post to database
         var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/addFood.php?building=BUILDING&room_info=ROOMINFO&food=PUTFOOD&description=DESCRIBE&claim=PORTION&expiration=NUM_IN_MINUTES"
-        
-        var blank_text = ""
-        var count = 0
-        var plural = ""
     
         // replace attributes with strings in textbox
-        if FoodText.text != "" && RoomText.text != "" && BuildingLabel.text != "Please Select a Building Below" && BuildingLabel.text != "" {
+        if FoodText.text != "" && RoomText.text != "" {
         urlString = urlString.stringByReplacingOccurrencesOfString("PUTFOOD", withString: FoodText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("DESCRIBE", withString: DescriptionText.text)
         urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
-        urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: BuildingLabel.text!)
-            if ClaimText.text == "" {
-                ClaimText.text == "1"
-            }
-        urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: ClaimText.text!)
-        urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: TimeText.text!)
+        urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: building)
+        urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: numberOfPortions)
+        urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: expirationTime)
         
         // run php script
         let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
@@ -312,41 +308,16 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
             
         else {
+            foodLabel.textColor = UIColor.blackColor()
+            roomLabel.textColor = UIColor.blackColor()
             
             if FoodText.text == "" {
-                blank_text = blank_text + "Food"
-                count = count + 1
+                foodLabel.textColor = UIColor.redColor()
             }
             
             if RoomText.text == "" {
-                if count == 1 {
-                    blank_text = blank_text + ", Room"
-                }
-                else {
-                    
-                    blank_text = blank_text + " Room"
-                }
-                count = count + 1
+                roomLabel.textColor = UIColor.redColor()
             }
-            
-            if BuildingLabel.text == "" || BuildingLabel.text == "Please Select a Building Below" {
-                if count >= 1 {
-                    blank_text = blank_text + ", Building"
-                    count = count + 1
-                    
-                }
-                else {
-                    blank_text = blank_text + " Building"
-                    count = count + 1
-                }
-            }
-            if count > 1 {
-                plural = "s"
-            }
-            
-            
-            DisplayLabel.textColor = UIColor.redColor()
-            DisplayLabel.text = "Missing Required Field" + plural + ": "  + blank_text
         }
     }
     
@@ -354,6 +325,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case buildingPicker:
@@ -382,8 +354,15 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == buildingPicker {
-            //BuildingLabel.text = buildingPickerData[row]
+        switch pickerView {
+        case buildingPicker:
+            building = buildingPickerData[row]
+        case expirationPicker:
+            expirationTime = expirationPickerData[row]
+        case portionPicker:
+            numberOfPortions = portionPickerData[row]
+        default:
+            return
         }
     }
     
