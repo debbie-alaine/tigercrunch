@@ -66,7 +66,8 @@ class postDetailViewController: UIViewController {
         
         elapsedTimeLabel.text = "Posted " + elapsedTime + " ago"
 //        timeLabel.text =  time_left_str + " hours"
-        timeLabel.text = time + " hours"
+        var timeToExpirationSplit = split(time) {$0 == ":"}
+        timeLabel.text = timeToExpirationSplit[0] + "h " + timeToExpirationSplit[1] + "m " + timeToExpirationSplit[2] + "s"
         claimLabel.text = claim
     }
     

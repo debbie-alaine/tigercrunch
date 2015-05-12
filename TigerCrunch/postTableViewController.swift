@@ -151,7 +151,7 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         var elapsedTime: String = "-"
         if let elapsedFormatted = elapsed {
             var elapsedSplit = split(elapsedFormatted) {$0 == ":"}
-            elapsedTime = elapsedSplit[0] + "h " + elapsedSplit[1] + "m"
+            elapsedTime = "Posted " + elapsedSplit[0] + "h " + elapsedSplit[1] + "m ago" 
         }
 
         var expiration = maindata["expiration"] as! String
@@ -211,7 +211,8 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
                         elapsedTime = realElapsed
                     }
                     destination.elapsedTime = elapsedTime
-                    destination.time = postDetails["expiration"] as! String
+                    destination.time = postDetails["time_to_expire"] as! String
+                    println(destination.time)
                     destination.claim = postDetails["claim"] as! String
                     destination.ID = postDetails["id"] as! String
                 }

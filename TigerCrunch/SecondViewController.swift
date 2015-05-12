@@ -24,7 +24,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var portionPicker: UIPickerView!
     
     var building: String = "106 Alexander St."
-    var expirationTime: String = "1"
+    var expirationTimeMinutes: String = "60"
     var numberOfPortions: String = "1"
     
     
@@ -295,7 +295,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             urlString = urlString.stringByReplacingOccurrencesOfString("ROOMINFO", withString: RoomText.text)
             urlString = urlString.stringByReplacingOccurrencesOfString("BUILDING", withString: building)
             urlString = urlString.stringByReplacingOccurrencesOfString("PORTION", withString: numberOfPortions)
-            urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: expirationTime)
+            urlString = urlString.stringByReplacingOccurrencesOfString("NUM_IN_MIN", withString: expirationTimeMinutes)
             
             // run php script
             let urlPost = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
@@ -359,7 +359,10 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         case buildingPicker:
             building = buildingPickerData[row]
         case expirationPicker:
-            expirationTime = expirationPickerData[row]
+            expirationTimeMinutes = expirationPickerData[row]
+            var hr2Minutes: Int! = expirationTimeMinutes.toInt()
+            hr2Minutes = hr2Minutes * 60
+            expirationTimeMinutes = "\(hr2Minutes)"
         case portionPicker:
             numberOfPortions = portionPickerData[row]
         default:
