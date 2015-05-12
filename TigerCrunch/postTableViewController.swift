@@ -212,7 +212,6 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
                     }
                     destination.elapsedTime = elapsedTime
                     destination.time = postDetails["time_to_expire"] as! String
-                    println(destination.time)
                     destination.claim = postDetails["claim"] as! String
                     destination.ID = postDetails["id"] as! String
                 }

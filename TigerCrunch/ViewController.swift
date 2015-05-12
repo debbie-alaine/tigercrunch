@@ -84,7 +84,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // handle delete (by removing the data from your array and updating the tableview)]
             
             let ID = data[indexPath.row]["id"] as! String
-            print(ID)
             var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/removeFood.php?id=ID"
             urlString = urlString.stringByReplacingOccurrencesOfString("ID", withString: ID)
             let urlPost = NSURL(string:urlString)
