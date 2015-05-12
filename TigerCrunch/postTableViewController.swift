@@ -28,7 +28,6 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
         self.tableView.dataSource = self
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 24)!]
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 255/255, green: 153/255, blue: 0/255, alpha: 1.0)
-
     }
     
     // hide search bar when scrolling
@@ -62,7 +61,7 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
             self.view.endEditing(true)
         }
         self.postSearchBar.endEditing(true)
-        super.touchesBegan(touches , withEvent:event)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func dataOfJson(url: String) -> NSArray {
@@ -173,7 +172,6 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
             // handle delete (by removing the data from your array and updating the tableview)]
             
             let ID = data[indexPath.row]["id"] as! String
-            print(ID)
             var urlString = "http://ec2-54-191-17-139.us-west-2.compute.amazonaws.com/removeFood.php?id=ID"
             urlString = urlString.stringByReplacingOccurrencesOfString("ID", withString: ID)
             let urlPost = NSURL(string:urlString)
@@ -187,6 +185,7 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
     }
     
     override func viewDidAppear(animated: Bool) {
+        self.view.userInteractionEnabled = true
         reload()
     }
 
@@ -198,6 +197,8 @@ class postTableViewController: UITableViewController, UITextFieldDelegate, UISea
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let segueID = segueIdentifier()
         if segue.identifier == segueID.postDetailView {
+            // prevent repeated clicking of post
+            self.view.userInteractionEnabled = false
             if let destination = segue.destinationViewController as? postDetailViewController {
                 if let postIndex = tableView.indexPathForSelectedRow()?.row {
                     var postDetails = data[postIndex] as! NSDictionary
