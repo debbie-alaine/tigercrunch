@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // Labels
     @IBOutlet weak var foodLabel: UILabel!
@@ -261,6 +261,9 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        FoodText.delegate = self
+        RoomText.delegate = self
+        DescriptionText.delegate = self
         buildingPicker.delegate = self
         buildingPicker.dataSource = self
         expirationPicker.delegate = self
@@ -323,6 +326,12 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     //MARK: - Delegates and data sources
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
